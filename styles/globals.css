@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Inter:wght@400;600&display=swap");
+
+:root {
+  --blue-dark: #0f3d91;
+  --blue: #1f7ae0;
+  --blue-light: #cde7ff;
+  --ink: #0b1b3f;
+  --paper: #ffffff;
+  --shadow: rgba(15, 61, 145, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.45;
+  z-index: -1;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+body::before {
+  top: -60px;
+  left: -80px;
+  background: radial-gradient(circle, var(--blue-light), var(--blue));
+}
+
+body::after {
+  bottom: -120px;
+  right: -90px;
+  background: radial-gradient(circle, #b7d6ff, var(--blue-dark));
+  animation-delay: 4s;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(20px, -10px, 0) scale(1.05);
+  }
+}
+
+.page {
+  max-width: 1080px;
+  margin: 32px auto 64px;
+  padding: 24px;
+  background: var(--paper);
+  border-radius: 24px;
+  box-shadow: 0 16px 40px var(--shadow);
+  position: relative;
+}
+
+.printButton {
+  position: sticky;
+  top: 16px;
+  float: right;
+  background: linear-gradient(120deg, var(--blue-dark), var(--blue));
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-family: "Baloo 2", cursive;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(31, 122, 224, 0.25);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.printButton:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 14px 28px rgba(15, 61, 145, 0.28);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: start;
+  background: linear-gradient(180deg, #f8fbff, #eef5ff);
+  border-radius: 24px;
+  padding: 20px;
+  border: 2px dashed var(--blue-light);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 34px;
+  font-family: "Baloo 2", cursive;
+  color: var(--blue-dark);
+}
+
+.hero h2 {
+  margin: 4px 0 12px;
+  font-size: 18px;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.role {
+  margin: 0 0 4px;
+  color: var(--blue-dark);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.summaryCard {
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 14px;
+  box-shadow: 0 12px 24px rgba(15, 61, 145, 0.08);
+  border: 1px solid var(--blue-light);
+}
+
+.summaryCard h3 {
+  margin: 0 0 8px;
+  font-family: "Baloo 2", cursive;
+  color: var(--blue-dark);
+  letter-spacing: 0.2px;
+}
+
+.summaryCard p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.contactCard {
+  background: #fff;
+  border-radius: 18px;
+  padding: 14px 16px;
+  border: 2px solid var(--blue);
+  box-shadow: 0 12px 26px rgba(15, 61, 145, 0.12);
+}
+
+.contactCard h3 {
+  margin: 0 0 10px;
+  font-family: "Baloo 2", cursive;
+  color: var(--blue-dark);
+}
+
+.contactCard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.contactCard li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.contactCard span {
+  color: var(--blue-dark);
+  font-weight: 700;
+}
+
+.contactCard a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.section {
+  margin-top: 28px;
+  background: #fff;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--blue-light);
+  box-shadow: 0 10px 22px rgba(15, 61, 145, 0.08);
+}
+
+.sectionTitle {
+  font-family: "Baloo 2", cursive;
+  color: var(--blue-dark);
+  font-size: 18px;
+  margin-bottom: 12px;
+  letter-spacing: 0.4px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  background: linear-gradient(135deg, #f1f6ff, #dceaff);
+  border: 1px dashed var(--blue);
+  color: var(--blue-dark);
+  padding: 10px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 8px 18px rgba(31, 122, 224, 0.12);
+  animation: bob 4s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.08s);
+}
+
+@keyframes bob {
+  0% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+}
+
+.timeline {
+  display: grid;
+  gap: 14px;
+}
+
+.card {
+  background: #f9fbff;
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid var(--blue-light);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+}
+
+.card h4 {
+  margin: 0;
+  font-size: 17px;
+  color: var(--blue-dark);
+  font-family: "Baloo 2", cursive;
+}
+
+.roleTitle {
+  margin: 4px 0 0;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--blue-dark);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.dateBadge {
+  background: #fff;
+  border: 1px dashed var(--blue);
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  font-size: 12px;
+}
+
+.list {
+  margin: 10px 0 0 16px;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.education {
+  display: grid;
+  gap: 12px;
+}
+
+.eduCard {
+  background: #f9fbff;
+  border: 1px solid var(--blue-light);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.eduCard h4 {
+  margin: 0 0 6px;
+  font-family: "Baloo 2", cursive;
+  color: var(--blue-dark);
+}
+
+.school {
+  margin: 0 0 4px;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.years {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .printButton {
+    position: static;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  body::before,
+  body::after,
+  .printButton {
+    display: none !important;
+  }
+
+  .page {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero,
+  .section {
+    page-break-inside: avoid;
+  }
+}
